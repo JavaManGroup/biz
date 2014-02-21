@@ -58,7 +58,7 @@ public class HelloController {
             Map result = (Map)list.get(i);
             String s = (String)result.get("name");
             String p = (String)result.get("phone");
-            if(s == wxMsg.getContent()) {
+            if(s.equals(wxMsg.getContent())) {
                 phone = p;
             }
         }
