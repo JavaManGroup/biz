@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +26,7 @@ public class HelloController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String doPost(HttpServletRequest request) throws IOException {
+    public String doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         WeixinMessage wxMsg = null;
         try {
             wxMsg = WeixinUtils.parseXML(request.getInputStream());
@@ -66,6 +67,7 @@ public class HelloController {
             phone = "查无此人";
         }
         System.out.println(phone);
+        response.setContentType("text/xml; charset=UTF-8");
         request.setAttribute("content", phone);
 
         return "weixin";
