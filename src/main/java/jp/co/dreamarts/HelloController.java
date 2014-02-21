@@ -65,6 +65,7 @@ public class HelloController {
         if(phone.length() == 0 ){
             phone = "查无此人";
         }
+        System.out.println(phone);
         request.setAttribute("content", phone);
 
         return "weixin";
