@@ -66,11 +66,12 @@ public class WexinRobotServlet extends HttpServlet {
         String echostr = request.getParameter("echostr");
         response.setContentType("text/plain; charset=UTF-8");
         PrintWriter out = response.getWriter();
-        if (checkSignature(request.getQueryString(), getToken())) {
-            out.print(echostr);
-        } else {
-            out.print("false");
-        }
+//        if (checkSignature(request.getQueryString(), getToken())) {
+//            out.print(echostr);
+//        } else {
+//            out.print("false");
+//        }
+        out.print(echostr);
         out.flush();
     }
 
