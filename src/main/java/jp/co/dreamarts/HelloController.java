@@ -28,8 +28,9 @@ public class HelloController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(wxMsg);
-        request.setAttribute("wxMsg", wxMsg);
+        System.out.println(wxMsg.getContent());
+
+        request.setAttribute("wxMsg", wxMsg.getReply());
         return "weixin";
     }
 
