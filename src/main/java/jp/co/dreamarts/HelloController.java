@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/restful/weixin.do")
@@ -31,9 +35,29 @@ public class HelloController {
         System.out.println(wxMsg.getContent());
         System.out.println("wxMsg.getReceiver()" + wxMsg.getReceiver());
         System.out.println("wxMsg.getSender()" + wxMsg.getSender());
-
+        List list = new ArrayList();
+        Map a1 = new HashMap();
+        a1.put("name","李浩");
+        a1.put("phone","18642698912");
+        Map a2 = new HashMap();
+        a2.put("name","李四");
+        a2.put("phone","123123123");
+        list.add(a1);
+        list.add(a2);
         request.setAttribute("wxMsg", wxMsg.getReply());
-        request.setAttribute("content", wxMsg.getReply());
+        String phone = "";
+        for(int i = 0 ; i<list.size();i++){
+            Map result = (Map)list.get(i);
+            String s = (String)result.get("name");
+            String p = (String)result.get("phone");
+            if(s == wxMsg.getContent()) {
+                phone = p;
+            }
+        }
+        if(phone.length() == 0 ){
+            phone = "查无此人";
+        }
+        request.setAttribute("content", phone);
 
         return "weixin";
     }
