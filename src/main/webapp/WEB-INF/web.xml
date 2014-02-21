@@ -1,0 +1,37 @@
+<web-app version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+	<display-name>Spring MVC Application</display-name>
+
+    <servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+	</servlet>
+
+    <servlet>
+        <servlet-name>WexinRobotServlet</servlet-name>
+        <servlet-class>jp.co.dreamarts.platform.wx.servlet.WexinRobotServlet</servlet-class>
+        <init-param>
+            <param-name>token</param-name>
+            <param-value>yourTokenHere</param-value>
+        </init-param>
+        <init-param>
+            <param-name>confFile</param-name>
+            <param-value>/WEB-INF/weixin-router.xml</param-value>
+        </init-param>
+    </servlet>
+
+    <!-- weixing -->
+    <servlet-mapping>
+        <servlet-name>WexinRobotServlet</servlet-name>
+        <url-pattern>/restful/weixin.robot</url-pattern>
+    </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
