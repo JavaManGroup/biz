@@ -42,8 +42,16 @@ public class HelloController {
         Map a2 = new HashMap();
         a2.put("name","李四");
         a2.put("phone","123123123");
+        Map a3 = new HashMap();
+        a3.put("name","刘鹏");
+        a3.put("phone","33343434");
+        Map a4 = new HashMap();
+        a4.put("name","大爷");
+        a4.put("phone","3123434");
         list.add(a1);
         list.add(a2);
+        list.add(a3);
+        list.add(a4);
         request.setAttribute("wxMsg", wxMsg.getReply());
         String phone = "";
         for(int i = 0 ; i<list.size();i++){
