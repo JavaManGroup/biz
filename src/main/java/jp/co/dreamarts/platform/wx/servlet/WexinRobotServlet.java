@@ -89,6 +89,7 @@ public class WexinRobotServlet extends HttpServlet {
         if (valid) {
             try {
                 WeixinMessage wxMsg = WeixinUtils.parseXML(request.getInputStream());
+                System.out.println("");
                 doMessage(wxMsg, request, response);
             } catch (Exception e) {
                 response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
