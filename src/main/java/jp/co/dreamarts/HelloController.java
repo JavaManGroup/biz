@@ -14,8 +14,9 @@ import java.io.IOException;
 @RequestMapping("/restful/weixin.do")
 public class HelloController {
     @RequestMapping(method = RequestMethod.GET)
-    public String doGet(ModelMap model) {
-        model.addAttribute("message", "Hello world!");
+    public String doGet(HttpServletRequest request) {
+        String echostr = request.getParameter("echostr");
+        request.setAttribute("echostr", echostr);
         return "hello";
     }
 
