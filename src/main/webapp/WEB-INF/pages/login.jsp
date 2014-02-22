@@ -68,14 +68,14 @@
 
         <div class="row-fluid">
             <div class="span12 center login-header">
-                <h2>Welcome to Charisma</h2>
+                <h2>欢迎使用快快点菜</h2>
             </div><!--/span-->
         </div><!--/row-->
 
         <div class="row-fluid">
             <div class="well span5 center login-box">
                 <div class="alert alert-info">
-                    Please login with your Username and Password.
+                    请输入用户名密码
                 </div>
                 <form class="form-horizontal" action="index.html" method="post">
                     <fieldset>
