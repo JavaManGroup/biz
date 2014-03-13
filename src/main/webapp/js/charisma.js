@@ -18,8 +18,8 @@ $(document).ready(function(){
 	
 	function switch_theme(theme_name)
 	{
-		$('#bs-css').attr('href','css/bootstrap-'+theme_name+'.css');
-	}
+        $('#bs-css').attr('href', '/biz/css/bootstrap-' + theme_name + '.css');
+    }
 	
 	//ajax menu checkbox
 	$('#is-ajax').click(function(e){
